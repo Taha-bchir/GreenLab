@@ -6,10 +6,10 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-3">
             <h3 className="text-xl font-bold">
-              Green<span className="text-primary">Lab</span>
+              Green<span className="text-primary ">Lab</span>
             </h3>
             <p className="text-foreground/60 text-sm">
-              Showcasing innovation in AI and media technology.
+              Showcasing innovation in technology.
             </p>
           </div>
 
@@ -39,10 +39,7 @@ export function Footer() {
           <div className="space-y-3">
             <h4 className="font-semibold">Contact</h4>
             <p className="text-foreground/60 text-sm">
-              Email:{' '}
-              <a href="mailto:hello@greenlab.com" className="text-primary hover:underline">
-                hello@greenlab.com
-              </a>
+            Send us a message in our social media channels
             </p>
           </div>
         </div>
