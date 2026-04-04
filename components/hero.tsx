@@ -31,7 +31,7 @@ export function Hero() {
           </div>
 
           <p className="mx-auto max-w-xl text-base leading-relaxed text-foreground/72 md:text-lg">
-A Dynamic Hackathon Taking Place 1-2 Mai 2026 at Hotel Skanes Serail, Monastir         </p>
+A Dynamic Hackathon Taking Place 1-2 Mai 2026 at Hotel Mouradi Skanes, Monastir         </p>
 
           <div className="flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild className="h-11 rounded-full px-6 text-sm font-semibold shadow-[0_0_24px_rgba(60,226,95,0.2)]">
