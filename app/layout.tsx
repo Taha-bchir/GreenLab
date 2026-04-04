@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter, Roboto_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const robotoMono = Roboto_Mono({ subsets: ['latin'], variable: '--font-roboto-mono' })
 
 export const metadata: Metadata = {
   title: 'GreenLab Hackathon',
@@ -36,7 +37,51 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-sans antialiased" suppressHydrationWarning>
+      <body className={`${inter.variable} ${robotoMono.variable} font-sans antialiased`} suppressHydrationWarning>
+        <Script id="strip-bis-skin-checked" strategy="beforeInteractive">
+          {`(() => {
+  const ATTR = 'bis_skin_checked';
+
+  const stripAttr = () => {
+    if (document.documentElement.hasAttribute(ATTR)) {
+      document.documentElement.removeAttribute(ATTR);
+    }
+
+    if (document.body?.hasAttribute(ATTR)) {
+      document.body.removeAttribute(ATTR);
+    }
+
+    document.querySelectorAll('[' + ATTR + ']').forEach((el) => {
+      el.removeAttribute(ATTR);
+    });
+  };
+
+  stripAttr();
+
+  const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type === 'attributes' && mutation.attributeName === ATTR) {
+        mutation.target.removeAttribute(ATTR);
+      }
+
+      if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+        stripAttr();
+      }
+    }
+  });
+
+  observer.observe(document.documentElement, {
+    subtree: true,
+    childList: true,
+    attributes: true,
+    attributeFilter: [ATTR],
+  });
+
+  window.addEventListener('load', () => {
+    observer.disconnect();
+  }, { once: true });
+})();`}
+        </Script>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
