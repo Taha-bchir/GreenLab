@@ -134,7 +134,7 @@ export function RegistrationForm() {
                 <Label htmlFor="fullName">Full Name</Label>
                 <Input
                   id="fullName"
-                  placeholder="John Doe"
+                  placeholder="Flen el Fouleni"
                   {...register('fullName')}
                   className="input-glow"
                 />
@@ -149,7 +149,7 @@ export function RegistrationForm() {
                 <Input
                   id="phone"
                   type="tel"
-                  placeholder="+1 (555) 123-4567"
+                  placeholder="+216 xx xxx xxx"
                   {...register('phone')}
                   className="input-glow"
                 />
@@ -183,6 +183,7 @@ export function RegistrationForm() {
                   <SelectContent>
                     <SelectItem value="engineering">ISET SFAX</SelectItem>
                     <SelectItem value="business">ESEAC</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
                 {errors.faculty && (
