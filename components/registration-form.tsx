@@ -181,7 +181,7 @@ export function RegistrationForm() {
                     <SelectValue placeholder="Select your faculty" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="engineering">ISET SFAX</SelectItem>
+                    <SelectItem value="Iset">ISET SFAX</SelectItem>
                     <SelectItem value="business">ESEAC</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
