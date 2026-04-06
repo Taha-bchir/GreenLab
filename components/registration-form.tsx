@@ -202,6 +202,7 @@ export function RegistrationForm() {
                     <SelectItem value="first-year">First Year</SelectItem>
                     <SelectItem value="second-year">Second Year</SelectItem>
                     <SelectItem value="third-year">Third Year</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
                 {errors.levelOfStudy && (

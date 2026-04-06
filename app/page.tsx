@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { Hero } from '@/components/hero';
+import { WhyJoinCards } from '@/components/why-join-cards';
 import { RegistrationForm } from '@/components/registration-form';
 import { Footer } from '@/components/footer';
-import { AnimatedBackground } from '@/components/ui/animated-background';
+import { AuroraBackground } from '@/components/aurora-background';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -18,13 +19,11 @@ export default function Home() {
   }
 
   return (
-    <div className="relative isolate min-h-screen text-foreground">
-      <AnimatedBackground />
-      <div className="relative z-10">
-        <Hero />
-        <RegistrationForm />
-        <Footer />
-      </div>
-    </div>
+    <AuroraBackground className="isolate min-h-screen text-foreground">
+      <Hero />
+      <WhyJoinCards />
+      <RegistrationForm />
+      <Footer />
+    </AuroraBackground>
   );
 }

@@ -132,7 +132,14 @@
 
 @layer utilities {
   .glassmorphism {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+    @apply bg-white/5 border border-white/10 rounded-2xl;
+    backdrop-filter: blur(6px);
+  }
+
+  @media (min-width: 768px) {
+    .glassmorphism {
+      backdrop-filter: blur(12px);
+    }
   }
 
   .glow-green {

@@ -7,7 +7,9 @@ export function Hero() {
     <section id="home" className="relative min-h-screen overflow-hidden px-4 py-14 md:py-20 isolate">
       <div className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-[color-mix(in_srgb,var(--brand-green)_8%,transparent)] to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,color-mix(in_srgb,var(--brand-green)_10%,transparent),transparent_26%),radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.025),transparent_50%)]" />
-      <AiThemeAmbient />
+      <div className="hidden xl:block">
+        <AiThemeAmbient />
+      </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7rem)] max-w-3xl items-center justify-center text-center">
         <div className="space-y-5">
