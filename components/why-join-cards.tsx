@@ -40,8 +40,8 @@ const eventDetails = [
   {
     icon: CalendarClock,
     label: 'Deadline',
-    value: '13 May, 12:00',
-    note: 'Registration closes at noon',
+    value: '17 April, 00:00',
+    note: 'Registration closes at midnight',
   },
   {
     icon: Users,
