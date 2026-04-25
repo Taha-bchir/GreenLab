@@ -26,6 +26,8 @@ const registrationSchema = z.object({
 
 type RegistrationFormData = z.infer<typeof registrationSchema>;
 
+const REGISTRATION_OPEN = process.env.NEXT_PUBLIC_REGISTRATION_OPEN === 'true';
+
 export function RegistrationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -45,6 +47,12 @@ export function RegistrationForm() {
   const levelOfStudy = watch('levelOfStudy');
 
   const onSubmit = async (data: RegistrationFormData) => {
+    if (!REGISTRATION_OPEN) {
+      setSubmitStatus('error');
+      setErrorMessage('Registrations are currently closed.');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
     setErrorMessage('');
@@ -95,7 +103,29 @@ export function RegistrationForm() {
           </div>
 
           {/* Success State */}
-          {submitStatus === 'success' ? (
+          {!REGISTRATION_OPEN ? (
+            <div className="space-y-4 text-center py-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-destructive/15 border border-destructive/25">
+                <svg
+                  className="w-8 h-8 text-destructive"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold">Registrations Are Closed</h3>
+              <p className="text-foreground/70">
+                Thank you for your interest. Registration is currently closed.
+              </p>
+            </div>
+          ) : submitStatus === 'success' ? (
             <div className="space-y-4 text-center py-8">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20">
                 <svg

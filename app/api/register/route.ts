@@ -17,7 +17,16 @@ interface RegistrationData {
 
 export const runtime = 'nodejs';
 
+const REGISTRATION_OPEN = process.env.REGISTRATION_OPEN === 'true';
+
 export async function POST(request: NextRequest) {
+  if (!REGISTRATION_OPEN) {
+    return NextResponse.json(
+      { message: 'Registrations are currently closed' },
+      { status: 403 }
+    );
+  }
+
   try {
     const body: RegistrationData = await request.json();
 
